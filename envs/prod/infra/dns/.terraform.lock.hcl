@@ -2,7 +2,8 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/cloudflare/cloudflare" {
-  version = "4.23.0"
+  version     = "4.23.0"
+  constraints = "~> 4.1"
   hashes = [
     "h1:mwME7g0VS3glSXFJi1xAmhnluStIJ/yxmORP2grrkb0=",
     "zh:034aae9f29e51b008eb5ff62bcfea4078d92d74fd8eb6e0f1833395002bf483d",

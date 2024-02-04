@@ -4,6 +4,9 @@ secrets.sh
 # Terragrunt generated files
 _*.tf
 
+# Terragrunt caches
+**/.terragrunt-cache
+
 # Local .terraform directories
 **/.terraform/*
 

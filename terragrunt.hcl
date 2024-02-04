@@ -29,12 +29,10 @@ generate "provider_infisical" {
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 variable "infisical_service_key" {}
-
 provider "infisical" {
   host          = "https://app.infisical.com"
   service_token = var.infisical_service_key
 }
-
 data "infisical_secrets" "secrets" {
   env_slug    = "prod"
   folder_path = "/"
