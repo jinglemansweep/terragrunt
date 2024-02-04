@@ -1,2 +1,0 @@
-# terragrunt
-Home Terragrunt Resources
