@@ -1,5 +1,5 @@
 generate "provider_cloudflare" {
-  path      = "provider_cloudflare.tf"
+  path      = "_provider_cloudflare.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 provider "cloudflare" {
@@ -8,6 +8,4 @@ provider "cloudflare" {
 EOF
 }
 
-include "root" {
-  path = find_in_parent_folders()
-}
+
