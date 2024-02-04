@@ -1,6 +1,9 @@
 # Secrets
 secrets.sh
 
+# Terragrunt generated files
+_*.tf
+
 # Local .terraform directories
 **/.terraform/*
 
