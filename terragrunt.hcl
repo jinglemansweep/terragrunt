@@ -3,6 +3,7 @@ generate "backend_tfc" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 terraform {
+  required_version = ">= 1.5"
   backend "remote" {
     hostname = "app.terraform.io"
     organization = "peachtrees"
