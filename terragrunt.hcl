@@ -16,6 +16,10 @@ terraform {
       source = "infisical/infisical"
       version = "~> 0.3"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.1"
+    }
   }
 }
 EOF
