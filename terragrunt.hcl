@@ -12,10 +12,6 @@ terraform {
     }
   }
   required_providers {
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 4.1"
-    }
     infisical = {
       source = "infisical/infisical"
       version = "~> 0.3"
