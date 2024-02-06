@@ -13,7 +13,7 @@ dependency "zone" {
 
 inputs = {
   account_name                = "Personal Account"
-  application_name            = "Test"
+  application_name            = "ptre.net"
   zone                        = dependency.zone.outputs.zone
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
 }

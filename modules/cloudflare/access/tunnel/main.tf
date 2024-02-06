@@ -14,8 +14,8 @@ resource "cloudflare_account" "account" {
 
 resource "cloudflare_tunnel" "tunnel" {
   account_id = cloudflare_account.account.id
-  name       = var.account_name
-  secret     = var.tunnel_secret
+  name       = var.tunnel_name
+  secret     = data.infisical_secrets.secrets.secrets[var.seckey_tunnel_secret].value
 }
 
 # Tunnel Config
