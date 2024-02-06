@@ -10,11 +10,6 @@ resource "cloudflare_account" "account" {
   name = var.account_name
 }
 
-# resource "dummy" "dummy" {
-#   for_each = { for idx, record in var.domain_records : idx => record }
-#   content  = each.value[0]
-# }
-
 resource "cloudflare_zone" "zone" {
   zone       = var.domain_name
   account_id = cloudflare_account.account.id

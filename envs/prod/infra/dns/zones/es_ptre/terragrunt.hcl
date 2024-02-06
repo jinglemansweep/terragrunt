@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "${get_repo_root()}/modules//dns/cloudflare"
+  source = "${get_repo_root()}/modules//cloudflare/dns"
 }
 
 inputs = {
