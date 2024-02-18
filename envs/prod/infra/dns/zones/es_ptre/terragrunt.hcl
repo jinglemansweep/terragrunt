@@ -21,7 +21,7 @@ inputs = {
     ["A", "plex.home", "10.0.2.24"],
     ["A", "labs", "10.0.2.141"],
     ["A", "rs1", "188.40.139.188"],
-
+    ["A", "rs1.ts", "100.122.54.59"],
   ]
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
 }
