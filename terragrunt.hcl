@@ -29,13 +29,17 @@ generate "provider_infisical" {
   path      = "_provider_infisical.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
-variable "infisical_service_token" {}
+variable "infisical_client_id" {}
+variable "infisical_client_secret" {}
+variable "infisical_workspace_id" {}
 provider "infisical" {
   host          = "https://app.infisical.com"
-  service_token = var.infisical_service_token
+  client_id     = var.infisical_client_id
+  client_secret = var.infisical_client_secret
 }
 data "infisical_secrets" "secrets" {
   env_slug    = "prod"
+  workspace_id = var.infisical_workspace_id
   folder_path = "/"
 }
 EOF

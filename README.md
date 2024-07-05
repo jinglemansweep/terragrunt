@@ -23,7 +23,9 @@ Login to Terraform Cloud:
 Set required configuration environment variables:
 
     export TF_VAR_tf_cloud_project="homelab"
-    export TF_VAR_infisical_service_token="st...."
+    export TF_VAR_infisical_workspace_id="..."
+    export TF_VAR_infisical_client_id="..."
+    export TF_VAR_infisical_client_secret="..."
 
 Navigate to the environment and plans you want to apply, initialise Terragrunt and perform a test plan:
 
