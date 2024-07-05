@@ -28,9 +28,21 @@ inputs = {
     },
     {
       hostname      = "ds920p.ptre.net"
-      service       = "ds920p.adm.ptre.es:5000"
+      service       = "http://ds920p.adm.ptre.es:5000"
       access        = true
       audience_tags = [dependency.apps_net_ptre.outputs.applications["ds920p"].aud]
+    },
+    {
+      hostname      = "coder.ptre.net"
+      service       = "http://core.adm.ptre.es:7080"
+      access        = true
+      audience_tags = [dependency.apps_net_ptre.outputs.applications["coder"].aud]
+    },
+    {
+      hostname      = null
+      service       = "http_status:503"
+      access        = true
+      audience_tags = []
     },
   ]
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
