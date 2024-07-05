@@ -1,5 +1,7 @@
 # Home Terragrunt Setup
 
+# ARCHIVED! MOVED TO PRIVATE REPO!
+
 This repository is home to Terragrunt configurations and resources required for provisioning both internal and external home lab resources.
 
 ## Requirements
