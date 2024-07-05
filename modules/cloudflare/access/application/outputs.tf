@@ -1,3 +1,3 @@
-output "application" {
-  value = cloudflare_access_application.application
+output "applications" {
+  value = cloudflare_access_application.applications
 }
