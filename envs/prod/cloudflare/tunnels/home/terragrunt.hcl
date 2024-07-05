@@ -11,10 +11,6 @@ dependency "account_home" {
   config_path = "../../accounts/home"
 }
 
-dependency "apps_net_ptre" {
-  config_path = "../../access/net_ptre"
-}
-
 inputs = {
   account = dependency.account_home.outputs.account
   team_name    = "pt"
@@ -23,26 +19,38 @@ inputs = {
     {
       hostname      = "hass.ptre.net"
       service       = "http://hass.adm.ptre.es:8123"
-      access        = true
-      audience_tags = [dependency.apps_net_ptre.outputs.applications["hass"].aud]
     },
     {
       hostname      = "ds920p.ptre.net"
       service       = "http://ds920p.adm.ptre.es:5000"
-      access        = true
-      audience_tags = [dependency.apps_net_ptre.outputs.applications["ds920p"].aud]
     },
     {
       hostname      = "coder.ptre.net"
       service       = "http://core.adm.ptre.es:7080"
-      access        = true
-      audience_tags = [dependency.apps_net_ptre.outputs.applications["coder"].aud]
+    },
+    {
+      hostname      = "pvm1.ptre.net"
+      service       = "https://pvm1.adm.ptre.es:8006"
+    },
+    {
+      hostname      = "pvm2.ptre.net"
+      service       = "https://pvm2.adm.ptre.es:8006"
+    },
+    {
+      hostname      = "pvm3.ptre.net"
+      service       = "https://pvm3.adm.ptre.es:8006"
+    },
+    {
+      hostname      = "rundeck.ptre.net"
+      service       = "http://core.adm.ptre.es:4440"
+    },
+    {
+      hostname      = "vuduo.ptre.net"
+      service       = "http://vuduo.adm.ptre.es:80"
     },
     {
       hostname      = null
       service       = "http_status:503"
-      access        = true
-      audience_tags = []
     },
   ]
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"

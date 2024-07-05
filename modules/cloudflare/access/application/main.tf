@@ -6,8 +6,6 @@ provider "cloudflare" {
   api_token = data.infisical_secrets.secrets.secrets[var.seckey_cloudflare_api_token].value
 }
 
-
-
 resource "cloudflare_access_application" "applications" {
   for_each = { for idx, record in var.applications : record.subdomain => record }
   name             = each.value.name
@@ -46,4 +44,14 @@ resource "cloudflare_access_policy" "access_policy_users" {
   depends_on = [
     cloudflare_access_application.applications
   ]
+}
+
+resource "cloudflare_record" "tunnel_cname" {
+  for_each = { for idx, record in var.applications : record.subdomain => record }
+  zone_id  = var.zone.id
+  type     = "CNAME"
+  name     = each.key
+  value    = var.tunnel_cname
+  ttl      = 1
+  proxied  = true
 }

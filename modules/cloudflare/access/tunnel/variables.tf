@@ -18,8 +18,6 @@ variable "tunnel_ingress_rules" {
   type = list(object({
     hostname      = string
     service       = string
-    access        = bool
-    audience_tags = list(string)
   }))
 }
 

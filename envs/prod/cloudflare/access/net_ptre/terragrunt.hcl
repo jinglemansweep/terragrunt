@@ -13,6 +13,7 @@ dependency "zone_net_ptre" {
 
 inputs = {
   zone = dependency.zone_net_ptre.outputs.zone
+  tunnel_cname = "8035b44e-f19a-45c9-80d8-58013b329718.cfargotunnel.com"
   applications = [
     {
       name = "Home Assistant",

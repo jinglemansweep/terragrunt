@@ -25,13 +25,6 @@ resource "cloudflare_tunnel_config" "tunnel_config" {
       content {
         hostname = ingress_rule.value.hostname
         service  = ingress_rule.value.service
-        #origin_request {
-        #  access {
-        #    required  = ingress_rule.value.access
-        #    team_name = var.team_name
-        #    aud_tag   = ingress_rule.value.audience_tags
-        #  }
-        #}
       }
     }
   }
