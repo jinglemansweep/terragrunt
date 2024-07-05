@@ -6,13 +6,9 @@ provider "cloudflare" {
   api_token = data.infisical_secrets.secrets.secrets[var.seckey_cloudflare_api_token].value
 }
 
-resource "cloudflare_account" "account" {
-  name = var.account_name
-}
-
 resource "cloudflare_zone" "zone" {
   zone       = var.domain_name
-  account_id = cloudflare_account.account.id
+  account_id = var.account.id
 }
 
 resource "cloudflare_record" "records" {

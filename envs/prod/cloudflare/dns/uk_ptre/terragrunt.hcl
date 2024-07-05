@@ -7,8 +7,12 @@ terraform {
   source = "${get_repo_root()}/modules//cloudflare/dns"
 }
 
+dependency "account_home" {
+  config_path = "../../accounts/home"
+}
+
 inputs = {
-  account_name                = "Personal Account"
+  account               = dependency.account_home.outputs.account
   domain_name                 = "ptre.uk"
   domain_records              = []
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"

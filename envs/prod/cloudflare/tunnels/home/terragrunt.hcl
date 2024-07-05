@@ -7,17 +7,16 @@ terraform {
   source = "${get_repo_root()}/modules//cloudflare/access/tunnel"
 }
 
-dependency "app_net_ptre" {
-  config_path = "../../access/applications/net_ptre"
+dependency "account_home" {
+  config_path = "../../accounts/home"
 }
 
-dependency "app_uk_ptre" {
-  config_path = "../../access/applications/uk_ptre"
+dependency "apps_net_ptre" {
+  config_path = "../../access/net_ptre"
 }
-
 
 inputs = {
-  account_name = "Personal Account"
+  account = dependency.account_home.outputs.account
   team_name    = "pt"
   tunnel_name  = "Home"
   tunnel_ingress_rules = [
@@ -25,15 +24,8 @@ inputs = {
       hostname      = "hass.ptre.net"
       service       = "http://hass.home:8123"
       access        = true
-      audience_tags = [dependency.app_net_ptre.outputs.application.aud]
+      audience_tags = [dependency.apps_net_ptre.outputs.application["hass2"].aud]
     },
-    {
-      hostname      = "grafana.ptre.uk"
-      service       = "http://dsm1.home:3000"
-      access        = true
-      audience_tags = [dependency.app_uk_ptre.outputs.application.aud]
-    },
-
   ]
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
   seckey_tunnel_secret        = "CLOUDFLARE_TUNNEL_SECRET_HOMELAB"

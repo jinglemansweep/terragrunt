@@ -1,6 +1,6 @@
-variable "account_name" {
-  description = "Account Name"
-  type        = string
+variable "account" {
+  description = "Cloudflare Account"
+  type        = any
 }
 
 variable "domain_name" {

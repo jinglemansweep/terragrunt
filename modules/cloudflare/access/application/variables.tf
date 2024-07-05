@@ -1,4 +1,7 @@
-
+variable "zone" {
+  description = "Cloudflare Zone"
+  type = any
+}
 
 variable "applications" {
   description = "Applications"

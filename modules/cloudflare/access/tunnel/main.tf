@@ -6,14 +6,10 @@ provider "cloudflare" {
   api_token = data.infisical_secrets.secrets.secrets[var.seckey_cloudflare_api_token].value
 }
 
-resource "cloudflare_account" "account" {
-  name = var.account_name
-}
-
 # Tunnel
 
 resource "cloudflare_tunnel" "tunnel" {
-  account_id = cloudflare_account.account.id
+  account_id = var.account.id
   name       = var.tunnel_name
   secret     = data.infisical_secrets.secrets.secrets[var.seckey_tunnel_secret].value
 }
@@ -21,7 +17,7 @@ resource "cloudflare_tunnel" "tunnel" {
 # Tunnel Config
 
 resource "cloudflare_tunnel_config" "tunnel_config" {
-  account_id = cloudflare_account.account.id
+  account_id = var.account.id
   tunnel_id  = cloudflare_tunnel.tunnel.id
   config {
     dynamic "ingress_rule" {

@@ -9,24 +9,24 @@ provider "cloudflare" {
 
 
 resource "cloudflare_access_application" "application" {
-  for_each = { for idx, record in var.applications : record.name => record }
+  for_each = { for idx, record in var.applications : record.subdomain => record }
   name             = each.value.name
-  zone_id          = each.value.zone.id
-  domain           = "${each.value.subdomain}.${each.value.zone.zone}"
+  zone_id          = var.zone.id
+  domain           = "${each.value.subdomain}.${var.zone.zone}"
   # tags             = lookup(each.value, "tags", [])
   session_duration = lookup(each.value, "session_duration", "60m")
   logo_url = lookup(each.value, "logo_url", null)
 }
 
 resource "cloudflare_access_policy" "access_policy_lan" {
-  for_each = { for idx, record in var.applications : record.name => record }
-  zone_id     = each.value.zone.id
-  application_id = "${ cloudflare_access_application.application[each.value.name].id }"
+  for_each = { for idx, record in var.applications : record.subdomain => record }
+  zone_id     = var.zone.id
+  application_id = "${ cloudflare_access_application.application[each.key].id }"
   name           = "LAN Bypass Policy"
   precedence     = "1"
   decision       = "bypass"
   include {
-    ip = ["62.3.65.60/32", "10.1.1.10/24"]
+    ip = ["62.3.65.60/32", "10.1.1.0/24"]
   }
   depends_on = [
     cloudflare_access_application.application
@@ -34,9 +34,9 @@ resource "cloudflare_access_policy" "access_policy_lan" {
 }
 
 resource "cloudflare_access_policy" "access_policy_users" {
-  for_each = { for idx, record in var.applications : record.name => record }
-  zone_id     = each.value.zone.id
-  application_id = "${ cloudflare_access_application.application[each.value.name].id }"
+  for_each = { for idx, record in var.applications : record.subdomain => record }
+  zone_id     = var.zone.id
+  application_id = "${ cloudflare_access_application.application[each.key].id }"
   name           = "User Include Policy"
   precedence     = "2"
   decision       = "allow"

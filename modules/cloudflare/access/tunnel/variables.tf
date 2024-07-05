@@ -1,6 +1,6 @@
-variable "account_name" {
-  description = "Account Name"
-  type        = string
+variable "account" {
+  description = "Account"
+  type        = any
 }
 
 variable "team_name" {
