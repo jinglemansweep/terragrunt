@@ -7,12 +7,21 @@ This repository is home to Terragrunt configurations and resources required for 
 * [Terraform Cloud](https://app.terraform.io/) or similar Terraform backend
 * [Infisical](https://infisical.com/) secrets management
 
+# Secrets
+
+| Key                              | Service     | Project     | Description                        |
+|----------------------------------|-------------|-------------|------------------------------------|
+| CLOUDFLARE_API_TOKEN             | `infisical` | `terraform` | Cloudflare API Token               |
+| CLOUDFLARE_TUNNEL_SECRET_HOMELAB | `infisical` | `terraform` | Cloudflare Tunnel Secret (Homelab) |
+
 ## Configuration
 
 The following environment variables need to be set:
 
 * `TF_VAR_tf_cloud_project`: Project Name on Terraform Cloud
-* `TF_VAR_infisical_service_token`: API Service Token for Infisical Cloud (*Project* > *Access Control* > *Service Tokens*)
+* `TF_VAR_infisical_workspace_id`: Infisical Workspace ID (*Projects* > *Terraform* > *Project Settings* > *Copy Project ID*)
+* `TF_VAR_infisical_client_id`: Infisical Machine Identity Client ID (*Projects* > *Terraform* > *Access Control* > *Machine Identities* > *Terragrunt*)
+* `TF_VAR_infisical_client_secret`: Infisical Machine Identity Client Secret (*Projects* > *Terraform* > *Project Settings* > *Copy Project ID*)
 
 ## Quickstart
 

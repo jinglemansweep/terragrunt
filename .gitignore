@@ -1,5 +1,5 @@
 # Secrets
-secrets.sh
+secrets.*
 
 # Terragrunt generated files
 _*.tf
