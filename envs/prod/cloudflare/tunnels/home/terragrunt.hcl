@@ -24,7 +24,13 @@ inputs = {
       hostname      = "hass.ptre.net"
       service       = "http://hass.adm.ptre.es:8123"
       access        = true
-      audience_tags = [dependency.apps_net_ptre.outputs.application["hass"].aud]
+      audience_tags = [dependency.apps_net_ptre.outputs.applications["hass"].aud]
+    },
+    {
+      hostname      = "ds920p.ptre.net"
+      service       = "ds920p.adm.ptre.es:5000"
+      access        = true
+      audience_tags = [dependency.apps_net_ptre.outputs.applications["ds920p"].aud]
     },
   ]
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
