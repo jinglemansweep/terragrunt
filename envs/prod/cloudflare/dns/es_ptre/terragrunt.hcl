@@ -15,7 +15,7 @@ inputs = {
   account = dependency.account_home.outputs.account
   domain_name  = "ptre.es"
   domain_records = [
-    # ["A", "labs", "10.1.1.141"],
+    ["A", "wan", "62.3.65.60"],
   ]
   seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
 }
