@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "cloudflare" {
-  api_token = data.infisical_secrets.secrets.secrets[var.seckey_cloudflare_api_token].value
+  api_token = data.infisical_secrets.secrets.secrets["CLOUDFLARE_API_TOKEN"].value
 }
 
 # Tunnel
@@ -11,7 +11,7 @@ provider "cloudflare" {
 resource "cloudflare_tunnel" "tunnel" {
   account_id = var.account.id
   name       = var.tunnel_name
-  secret     = data.infisical_secrets.secrets.secrets[var.seckey_tunnel_secret].value
+  secret     = data.infisical_secrets.secrets.secrets["CLOUDFLARE_TUNNEL_SECRET_HOMELAB"].value
 }
 
 # Tunnel Config
@@ -20,6 +20,9 @@ resource "cloudflare_tunnel_config" "tunnel_config" {
   account_id = var.account.id
   tunnel_id  = cloudflare_tunnel.tunnel.id
   config {
+    warp_routing {
+      enabled = true
+    }
     dynamic "ingress_rule" {
       for_each = var.tunnel_ingress_rules
       content {

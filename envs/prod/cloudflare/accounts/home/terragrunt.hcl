@@ -9,5 +9,4 @@ terraform {
 
 inputs = {
   account_name = "Personal Account"
-  seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
 }

@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "cloudflare" {
-  api_token = data.infisical_secrets.secrets.secrets[var.seckey_cloudflare_api_token].value
+  api_token = data.infisical_secrets.secrets.secrets["CLOUDFLARE_API_TOKEN"].value
 }
 
 resource "cloudflare_access_application" "applications" {
@@ -24,7 +24,7 @@ resource "cloudflare_access_policy" "access_policy_lan" {
   precedence     = "1"
   decision       = "bypass"
   include {
-    ip = ["62.3.65.60/32", "10.1.1.0/24"]
+    ip = ["62.3.65.60/32"]
   }
   depends_on = [
     cloudflare_access_application.applications

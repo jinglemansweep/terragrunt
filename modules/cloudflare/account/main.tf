@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "cloudflare" {
-  api_token = data.infisical_secrets.secrets.secrets[var.seckey_cloudflare_api_token].value
+  api_token = data.infisical_secrets.secrets.secrets["CLOUDFLARE_API_TOKEN"].value
 }
 
 resource "cloudflare_account" "account" {

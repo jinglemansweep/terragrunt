@@ -20,13 +20,3 @@ variable "tunnel_ingress_rules" {
     service       = string
   }))
 }
-
-variable "seckey_cloudflare_api_token" {
-  description = "Secret Key for Cloudflare API Token"
-  type        = string
-}
-
-variable "seckey_tunnel_secret" {
-  description = "Secret Key for Tunnel Secret"
-  type        = string
-}

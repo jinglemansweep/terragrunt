@@ -70,5 +70,4 @@ inputs = {
       logo_url = "https://www.svgrepo.com/show/514081/code.svg"
     },
   ]
-  seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
 }

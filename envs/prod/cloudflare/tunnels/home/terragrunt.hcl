@@ -53,6 +53,4 @@ inputs = {
       service       = "http_status:503"
     },
   ]
-  seckey_cloudflare_api_token = "CLOUDFLARE_API_TOKEN"
-  seckey_tunnel_secret        = "CLOUDFLARE_TUNNEL_SECRET_HOMELAB"
 }
